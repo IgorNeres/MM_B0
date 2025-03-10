@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - MM B0</title>
     <link rel="stylesheet" href="node_modules\bootstrap\comp\bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <body style="overflow: hidden;">
     <div class="container-fluid">
         <div class="row min-vh-100 d-flex align-items-stretch ">
+<!--PARTE VERDE-->
             <div class="col-5 bg-success">
                 <div class="row">
                     <img src="img/manoelmanologowhite.png" alt="" class="img-fluid w-100" style="margin-top: 25%; margin-left: 2%;">
@@ -18,9 +19,11 @@
                     <img src="img/cearalogowhite.png" alt="" class="img-fluid w-50" style="margin-top: 25%; margin-left: 30%;">
                 </div>
             </div>
+<!--DETALHE-->
             <div class="col text-center" style="margin-left: -22px; margin-top: -5px;">
                 <img src="img/onda1.png" class="img-fluid h-100">
             </div>
+<!--FORMS-->
             <div class="col-5">
                 <div class="row">
                     <img src="img/titulo.png" alt="" class="img-fluid w-50 rounded mx-auto d-block" style="margin-top: 10%;">
@@ -40,6 +43,7 @@
                 <button type="submit" class="btn btn-outline-dark"><i class="bi bi-box-arrow-in-right"></i> Entrar</button>
                 </form>
             </div>
+<!--DETALHE-->
             <div class="col text-center" style="margin-right: -45px; margin-top: -5px;">
                 <img src="img/onda2.png" class="img-fluid h-100">
             </div>
