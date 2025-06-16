@@ -1,5 +1,5 @@
 {
-  "name": "mmbo",
+  "name": "teste",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.5",
     "jquery": "^3.7.1"
   }
 }

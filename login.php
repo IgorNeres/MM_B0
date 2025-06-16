@@ -1,56 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include('conexao.php');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MM B0</title>
-    <link rel="stylesheet" href="node_modules\bootstrap\comp\bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<body style="overflow: hidden;">
-    <div class="container-fluid">
-        <div class="row min-vh-100 d-flex align-items-stretch ">
-<!--PARTE VERDE-->
-            <div class="col-5 bg-success">
-                <div class="row">
-                    <img src="img/manoelmanologowhite.png" alt="" class="img-fluid w-100" style="margin-top: 25%; margin-left: 2%;">
-                </div>
-                <div class="row">
-                    <img src="img/cearalogowhite.png" alt="" class="img-fluid w-50" style="margin-top: 25%; margin-left: 30%;">
-                </div>
-            </div>
-<!--DETALHE-->
-            <div class="col text-center" style="margin-left: -22px; margin-top: -5px;">
-                <img src="img/onda1.png" class="img-fluid h-100">
-            </div>
-<!--FORMS-->
-            <div class="col-5">
-                <div class="row">
-                    <img src="img/titulo.png" alt="" class="img-fluid w-50 rounded mx-auto d-block" style="margin-top: 10%;">
-                </div>
-                <div class="row">
-                    <img src="img/login.png" alt="" class="img-fluid w-25 rounded mx-auto d-block" style="margin-top: 15%;">
-                </div>
-                <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Usuário:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Senha:</label>
-                    <input type="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-outline-dark"><i class="bi bi-box-arrow-in-right"></i> Entrar</button>
-                </form>
-            </div>
-<!--DETALHE-->
-            <div class="col text-center" style="margin-right: -45px; margin-top: -5px;">
-                <img src="img/onda2.png" class="img-fluid h-100">
-            </div>
-        </div>
-    </div>
+if(empty($_POST['usuario']) || empty($_POST['senha'])) {
+    header('Location: home.php');
+    exit();
+} 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+$usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);
+$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-</html>
+$query = "SELECT user_id, user_name FROM users WHERE user_name = '{$usuario}' AND user_password = md5('{$senha}')";
+
+$result = mysqli_query($conexao, $query);
+$row = mysqli_num_rows($result);
+
+if($row == 1){
+    $_SESSION['usuario'] = $usuario;
+    header('Location: pg-home.php');
+    exit();
+} else {
+    $_SESSION['nao_autenticado'] = true;
+    header('Location: home.php');
+    exit();
+}
+?>
