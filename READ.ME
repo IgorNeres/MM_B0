@@ -1,0 +1,32 @@
+*CODIGO MYSQL*
+
+-- Criar o banco de dados
+CREATE DATABASE IF NOT EXISTS mmbo;
+USE mmbo;
+
+-- Criar a tabela ocorrencias
+CREATE TABLE ocorrencias (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    estudante VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    curso VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    serie VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    data_ocorrencia DATE NOT NULL,
+    horario TIME NULL,
+    motivo TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+    cid VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+    dias INT(11) NULL,
+    inicio DATE NULL,
+    termino DATE NULL,
+    componente VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+    responsavel VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+    criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Criar a tabela users
+CREATE TABLE users (
+    user_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    user_password CHAR(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+);
+
