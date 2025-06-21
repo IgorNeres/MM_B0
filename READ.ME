@@ -30,3 +30,5 @@ CREATE TABLE users (
     user_password CHAR(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 );
 
+INSERT INTO users (user_name, user_password)
+VALUES ('admin', MD5('admin'));
